@@ -34,6 +34,7 @@ public abstract class BaseSubBundleActivity extends Activity {
         @Override
         protected void onPostExecute(Void aVoid) {
             getReactNativeHost().getReactInstanceManager().attachMeasuredRootView(mReactRootView);
+            Utils.setViewAttached(mReactRootView, true);
         }
 
     }

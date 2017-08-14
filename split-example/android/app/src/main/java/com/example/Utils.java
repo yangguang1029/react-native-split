@@ -67,6 +67,18 @@ class Utils {
         }
     }
 
+    public static void setViewAttached(ReactRootView rootView, boolean bAttached) {
+        try {
+            Field field = ReactRootView.class.getDeclaredField("mIsAttachedToInstance");
+            field.setAccessible(true);
+            field.set(rootView, bAttached);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Nullable
     static CatalystInstance getCatalystInstance(ReactNativeHost host) {
         ReactInstanceManager manager = host.getReactInstanceManager();
